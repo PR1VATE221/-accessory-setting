@@ -32,6 +32,7 @@ DialogResponse:attach_main(playerid, response, listitem, inputtext[]) {
 	);
 
 	EditAttachedObject(playerid, object_index);
+	
 
 	attach_info[playerid][current_skin] = 1;
 	attach_info[playerid][attach_object] = object_id;

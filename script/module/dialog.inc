@@ -39,36 +39,23 @@ DialogResponse:attach_main(playerid, response, listitem, inputtext[]) {
 	attach_info[playerid][attach_bone] = object_bone;
 	attach_info[playerid][attach_status] = true;
 
-	SendClientMessage(playerid, -1, "Нажмите 'Сохранить' чтобы перейти к следующему скину.");
+	SendClientMessage(playerid, 0xFFFFFFFF, "Вы начали установку аксессуара.");
+	SendClientMessage(playerid, 0xFFFFFFFF, "Чтобы закончить (прервать) установку, введите /stop_creating");
+	SendClientMessage(playerid, 0xFFFFFFFF, "Для сохранения аксессуара, нажмите 'Дискетта', для пропуска скина, нажмите 'ESC'.");
+	
 	new
-		day,
-		month,
-		year,
-		hour,
-		minute,
-		second,
 		player_name[MAX_PLAYER_NAME];
 
 	GetPlayerName(playerid, player_name, sizeof(player_name));
-	gettime(hour, minute, second);
-	getdate(year, month, day);
 
 	format(string_text, sizeof(string_text), "%s-objid-%i.ini",
 	player_name, object_id);
 
 	format(string_small, sizeof(string_small), "[ OBJECT ID: %i | BONE: %i ]", object_id, object_bone);
 
-	new iniFile = ini_createFile ( string_text , string_small);
+	ini_createFile ( string_text , string_small);
 
-	if ( iniFile < 0 ) {
-		iniFile = ini_openFile ( string_text );
-	} else {
-
-		ini_setString  ( iniFile, "| SKINID | X | Y | Z | RX | RY | RZ |", "test_ammount" );
-
-		ini_closeFile  ( iniFile );
-
-	}
 	
+
 	return true;
 }

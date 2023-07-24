@@ -27,7 +27,16 @@ public OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, Fl
 		ini_setString  ( iniFile, string_small, string_text );
 
 		ini_closeFile  ( iniFile );
-
+		if(attach_info[playerid][current_skin] == 311) {
+			SendClientMessage(playerid, -1, "Установка аксессуара на скины завершена.");
+			RemovePlayerAttachedObject(playerid, attach_info[playerid][attach_index]);
+			attach_info[playerid][current_skin] = -1;
+			attach_info[playerid][attach_object] = -1;
+			attach_info[playerid][attach_index] = -1;
+			attach_info[playerid][attach_bone] = -1;
+			attach_info[playerid][attach_status] = false;
+			return true;
+		}
 		attach_info[playerid][current_skin]++;
 		SetPlayerSkin(playerid, attach_info[playerid][current_skin]);
 		EditAttachedObject(playerid, index);		

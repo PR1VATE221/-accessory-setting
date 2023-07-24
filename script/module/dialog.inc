@@ -55,8 +55,5 @@ DialogResponse:attach_main(playerid, response, listitem, inputtext[]) {
 	format(string_small, sizeof(string_small), "[ OBJECT ID: %i | BONE: %i ]", object_id, object_bone);
 
 	ini_createFile ( string_text , string_small);
-
-	
-
 	return true;
 }

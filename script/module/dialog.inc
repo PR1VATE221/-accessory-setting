@@ -44,16 +44,19 @@ DialogResponse:attach_main(playerid, response, listitem, inputtext[]) {
 	SendClientMessage(playerid, 0xFFFFFFFF, "Чтобы закончить (прервать) установку, введите /stop_creating");
 	SendClientMessage(playerid, 0xFFFFFFFF, "Для сохранения аксессуара, нажмите 'Дискетта', для пропуска скина, нажмите 'ESC'.");
 	
-	new
-		player_name[MAX_PLAYER_NAME];
+	#if defined mysql_using
 
-	GetPlayerName(playerid, player_name, sizeof(player_name));
+	#else
+		new player_name[MAX_PLAYER_NAME];
 
-	format(string_text, sizeof(string_text), "%s-objid-%i.ini",
-	player_name, object_id);
+		GetPlayerName(playerid, player_name, sizeof(player_name));
 
-	format(string_small, sizeof(string_small), "[ OBJECT ID: %i | BONE: %i ]", object_id, object_bone);
+		format(string_text, sizeof(string_text), "%s-objid-%i.ini",
+		player_name, object_id);
 
-	ini_createFile ( string_text , string_small);
+		format(string_small, sizeof(string_small), "[ OBJECT ID: %i | BONE: %i ]", object_id, object_bone);
+
+		ini_createFile ( string_text , string_small);
+	#endif
 	return true;
 }

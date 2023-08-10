@@ -30,6 +30,12 @@ public OnFilterScriptInit() {
 	printf("---------------------------------");
 	printf("| Accessory Setting script loaded |");
 	printf("| Author: James                   |");
+	#if defined mysql_using
+		printf("| Тип использования: MySQL        |");
+	#else
+		printf("| Тип использования: mxINI        |");
+	#endif
+	printf("Made for pawn's users");
 	printf("--------------------------------");
 	return true;
 }

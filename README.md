@@ -9,3 +9,4 @@ This script will allow you to adjust any valid object from GTA SA to all skins.
 <p>3. Click save</p>
 <p>4. Repeat point 2</p>
 
+Little update
